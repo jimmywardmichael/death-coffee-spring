@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name= "user")
 public class User {
     @Id
-//    GenerationType.Identity assigns primary key using databaase identity column
+//    GenerationType.Identity assigns primary key using database identity column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
