@@ -39,3 +39,15 @@ table {
         display: none;
     }
 }
+ .btn {
+        background-color: #ff9900; /* Set the background color */
+        color: white; /* Set the text color */
+        padding: 8px 16px; /* Add padding to the button */
+        border: none; /* Remove the border */
+        border-radius: 4px; /* Add some border radius for rounded corners */
+        cursor: pointer; /* Add a pointer cursor on hover */
+    }
+
+    .btn:hover {
+        background-color: #ff6600; /* Change background color on hover */
+    }
