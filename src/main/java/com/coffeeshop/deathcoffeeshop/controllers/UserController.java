@@ -2,10 +2,13 @@ package com.coffeeshop.deathcoffeeshop.controllers;
 
 import com.coffeeshop.deathcoffeeshop.models.User;
 import com.coffeeshop.deathcoffeeshop.repositories.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -18,30 +21,20 @@ public UserController(UserRepository userDao){
     }
     @GetMapping("/signup")
 public String showSignUpForm(Model model) {
-    User user = new User(); // Create a new User object
-    model.addAttribute("user", user); // Add the 'user' object to the model
+   // Create a new User object
+    model.addAttribute("user",new User()); // Add the 'user' object to the model
     return "html/signup";
 }
-    @PostMapping ("/signup")
-    public String coffeeClub(Model theModel) {
-        // Create a new User instance to save
-        User newUser = new User();
-             // Set values for required fields
-        newUser.setUsername("exampleUsername");
-        newUser.setFname("John");
-        newUser.setLname("Doe");
-        newUser.setEmail("john@example.com");
-        newUser.setPassword("password"); // You should handle password hashing in a secure way
-        newUser.setConfpassword("password"); // You should handle password hashing in a secure way
-        newUser.setAddress("123 Main St");
-        newUser.setAddress2("Apt 456");
-        newUser.setCity("City");
-        newUser.setState("State");
-        newUser.setZip("12345");
+   @PostMapping("/signup")
+    public String processSignUpForm(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            // If there are validation errors, return to the signup form
+            return "html/signup";
+        }
 
-        // Save the new user to the database
-        userDao.save(newUser);
+        // Save the user to the database
+        userDao.save(user);
 
-        return "redirect:html/coffeehome";
+        return "html/coffeehome";
     }
 }
