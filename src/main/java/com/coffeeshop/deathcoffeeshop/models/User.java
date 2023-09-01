@@ -6,32 +6,34 @@ import jakarta.persistence.*;
 @Table(name= "user")
 public class User {
     @Id
+//    GenerationType.Identity assigns primary key using databaase identity column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(name="username",nullable = false, length = 50, unique = true)
     private String username;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(name="fname",nullable = false, length = 50, unique = true)
     private String fname;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(name="lname",nullable = false, length = 50, unique = true)
     private String lname;
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(name="email",nullable = false, length = 100, unique = true)
     private String email;
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(name="password",nullable = false, length = 100, unique = true)
     private String password;
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(name="confpassword",nullable = false, length = 100, unique = true)
     private String confpassword;
-    @Column(nullable = false, unique = true)
+    @Column(name="address",nullable = false, unique = true)
     private String address;
-    @Column(nullable = false, unique = true)
+    @Column(name="address2",nullable = false, unique = true)
     private String address2;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(name="city",nullable = false, length = 50, unique = true)
     private String city;
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(name="state",nullable = false, length = 50, unique = true)
     private String state;
-    @Column(nullable = false, length = 20, unique = true)
+    @Column(name="zip",nullable = false, length = 20, unique = true)
     private String zip;
 
-    // Getters and setters
+    // Constructors
 
 
     public User(Long id, String username, String fname, String lname, String email, String password, String confpassword, String address, String address2, String city, String state, String zip) {
@@ -52,7 +54,7 @@ public class User {
     public User() {
 
     }
-
+//Getters and Setter Methods
     public Long getId() {
         return id;
     }
@@ -147,5 +149,23 @@ public class User {
 
     public void setZip(String zip) {
         this.zip = zip;
+    }
+//Generated ToString method
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confpassword='" + confpassword + '\'' +
+                ", address='" + address + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                '}';
     }
 }
