@@ -34,11 +34,11 @@ table {
     margin: 15px 0;
 }
 
-@media screen and (max-width:769px){
-    #image {
-        display: none;
-    }
-}
+/*@media screen and (max-width:769px){*/
+/*    #image {*/
+/*        display: none;*/
+/*    }*/
+/*}*/
  .btn {
         background-color: #ff9900; /* Set the background color */
         color: white; /* Set the text color */
@@ -55,8 +55,7 @@ table {
     a.nav-link{
         color: gold;
     }
-    /*#navmenu{*/
-    /*    display: flex;*/
-    /*    flex-direction: column;*/
-    /*    justify-content: center;*/
-    /*}*/
+#coffeeBags{
+    max-height: 200px;
+    width:400px;
+}
