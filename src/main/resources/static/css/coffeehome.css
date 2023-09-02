@@ -51,3 +51,12 @@ table {
     .btn:hover {
         background-color: #ff6600; /* Change background color on hover */
     }
+
+    a.nav-link{
+        color: gold;
+    }
+    /*#navmenu{*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*    justify-content: center;*/
+    /*}*/
