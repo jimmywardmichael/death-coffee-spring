@@ -75,7 +75,7 @@ table {
 }
 
 .btn {
-    background-color: #ff9900; /* Set the background color */
+    background-color: black; /* Set the background color */
     color: white; /* Set the text color */
     padding: 8px 16px; /* Add padding to the button */
     border: none; /* Remove the border */
@@ -84,7 +84,8 @@ table {
 }
 
 .btn:hover {
-    background-color: #ff6600; /* Change background color on hover */
+    background-color: gold; /* Change background color on hover */
+    color: black;
 }
 
 a.nav-link{
@@ -111,17 +112,25 @@ a.nav-link{
 }
 /* Custom CSS for the cart modal */
 .modal-dialog-side {
-    width: 400px; /* Adjust the width as needed */
+    width: 400px;
+    flex-direction:column;
+    /* Adjust the width as needed */
 }
 
 .modal-content {
     border-radius: 10px;
+    color: gold;
 }
 
 .modal-header {
-    background-color: #333;
-    color: white;
+    background-color: black;
+    color: Gold;
 }
 
 /* Add more custom styling as needed */
 
+/*Cards displaying coffees*/
+.card-body{
+    background-color: black;
+    color: gold;
+}
