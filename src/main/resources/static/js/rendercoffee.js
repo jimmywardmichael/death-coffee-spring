@@ -1,112 +1,82 @@
 (function () {
     "use strict";
 
-// Concatenation
-    function renderCoffee(coffee) {
-        let html = '<div class="coffee">';
-        // html += '<p>' + coffee.id + '</p>';
-        html += '<p>' + coffee.name + '</p>';
-        html += '<p>' + coffee.roast + '</p>';
-        html += '</div>';
-        return html;
-    }
-
-// Displaying All Coffee
-    function renderCoffees(coffees) {
-        let html = '';
-        for (let i = coffees.length - 1; i >= 0; i--) {
-            html += renderCoffee(coffees[i]);
-        }
-        return html;
-    }
-
-// Updating new coffee into array
-    function updateCoffees(e) {
-        e.preventDefault(); // don't submit the form, we just want to update the data
-        let selectedRoast = roastSelection.value;
-        let filteredCoffees = [];
-        coffees.forEach(function (coffee) {
-            console.log(coffee.roast)
-            if (coffee.roast === selectedRoast) {
-                filteredCoffees.push(coffee);
-            }
-            tbody.innerHTML = renderCoffees(filteredCoffees);
-        })
-    }
-
-// Array
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+    // Define your coffees array here
     let coffees = [
-        {id: 1, name: 'Light City', roast: 'light'},
-        {id: 2, name: 'Half City', roast: 'light'},
-        {id: 3, name: 'Cinnamon', roast: 'light'},
-        {id: 4, name: 'City', roast: 'medium'},
-        {id: 5, name: 'American', roast: 'medium'},
-        {id: 6, name: 'Breakfast', roast: 'medium'},
-        {id: 7, name: 'High', roast: 'dark'},
-        {id: 8, name: 'Continental', roast: 'dark'},
-        {id: 9, name: 'New Orleans', roast: 'dark'},
-        {id: 10, name: 'European', roast: 'dark'},
-        {id: 11, name: 'Espresso', roast: 'dark'},
-        {id: 12, name: 'Viennese', roast: 'dark'},
-        {id: 13, name: 'Italian', roast: 'dark'},
-        {id: 14, name: 'French', roast: 'dark'},
+        { id: 1, name: 'Death PB and J', roast: 'light', price: 10 },
+        { id: 2, name: 'Death Ethiopia', roast: 'light', price: 10 },
+        { id: 3, name: 'Death Salted Caramel', roast: 'medium', price: 12 },
+        { id: 4, name: 'Death French Toast', roast: 'medium', price: 12 },
+        { id: 5, name: 'Death Pumpkin King', roast: 'medium', price: 12 },
+        { id: 6, name: 'Death Irish Cream', roast: 'medium', price: 12 },
+        { id: 7, name: 'Death Dark Chocolate', roast: 'dark', price: 14 },
+        { id: 8, name: 'Death Sumatra', roast: 'dark', price: 14 },
+        { id: 9, name: 'Death Banana Foster', roast: 'dark', price: 14 },
     ];
 
-// Code to search for specified coffee. Pulling in from search bar. //
-    let userInput = document.getElementById('CoffeeSearchBar')
-    userInput.addEventListener("keyup", function () {
-        let typedInput = userInput.value.toUpperCase();
-        let filteredCoffees = [];
-        for (let i = 0; i < coffees.length; i++) {
-            if (coffees[i].name.toUpperCase().includes(typedInput)) {
-                filteredCoffees.push(coffees[i]);
-            }
-        }
-        tbody.innerHTML = renderCoffees(filteredCoffees);
-    })
+    // Function to create a Bootstrap card for a coffee product
+    function createCoffeeCard(coffee) {
+        const card = document.createElement('div');
+        card.className = 'col-md-4 mb-4';
 
-// Getting Users Input From...
-    let userInput1 = document.getElementById('addCoffee') // text entry name
-    let userInput2 = document.getElementById('add-coffee') // dropdown roast
-    console.log(userInput2);
+        const cardContent = `
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${coffee.name}</h5>
+                    <p class="card-text">Roast: ${coffee.roast}</p>
+                    <p class="card-text">Price: $${coffee.price}</p>
+                    <button class="btn btn-primary btn-add-to-cart" data-name="${coffee.name}" data-price="${coffee.price}">Add to Cart</button>
+                </div>
+            </div>
+        `;
 
-    let tbody = document.querySelector('#coffees');
-    let submitButton = document.querySelector('#submit');
-    let roastSelection = document.querySelector('#roast-selection');
-    let submitButton1 = document.querySelector('#submit1');
-    tbody.innerHTML = renderCoffees(coffees);
-    submitButton.addEventListener('click', updateCoffees);
+        card.innerHTML = cardContent;
+        return card;
+    }
 
+    // Function to render all coffee products as cards
+    function renderCoffeeProducts(coffees) {
+        const coffeeProductsContainer = document.getElementById('coffee-products');
+        coffeeProductsContainer.innerHTML = ''; // Clear existing content
 
-    submitButton1.addEventListener("click", addCoffee);
-    userInput1.addEventListener('change', addCoffee);
-
-// creating an object from user input, to add to update coffee to add into coffee array.
-    function addCoffee() {
-        let coffeeName = userInput1.value;
-        let coffeeRoast = userInput2.value;
-
-        if (coffeeName && coffeeRoast) {
-            let coffee = { name: coffeeName, roast: coffeeRoast };
-            coffees.push(coffee);
-            console.log(coffee);
-
-            // Clear input fields
-            userInput1.value = '';
-            userInput2.value = '';
-
-            // Clear roast selection
-            roastSelection.selectedIndex = 0; // Assuming the default option is the first one
-
-            // Optionally, you can also update the rendered coffee list after adding
-            tbody.innerHTML = renderCoffees(coffees);
-        } else {
-            // Handle case where inputs are not filled
-            alert('Please enter both coffee name and roast type.');
+        for (const coffee of coffees) {
+            const coffeeCard = createCoffeeCard(coffee);
+            coffeeProductsContainer.appendChild(coffeeCard);
         }
     }
-    const cart = []; // Array to store cart items
+
+    // Event listener for adding coffee to the cart
+    document.addEventListener('click', function (event) {
+        if (event.target.classList.contains('btn-add-to-cart')) {
+            const coffeeName = event.target.getAttribute('data-name');
+            const coffeePrice = parseFloat(event.target.getAttribute('data-price'));
+            addToCart(coffeeName, coffeePrice);
+        }
+    });
+
+    // Function to update the cart display with animation
+    function updateCartDisplay() {
+        const cartContainer = document.getElementById('cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = ''; // Clear existing cart content
+
+        for (const item of cart) {
+            const cartItem = document.createElement('div');
+            cartItem.textContent = `Coffee: ${item.name} - Price: $${item.price}`;
+            cartItemsContainer.appendChild(cartItem);
+        }
+
+        // Add a class to trigger the slide-in animation
+        cartContainer.classList.add('cart-slidein');
+
+        // Set a timeout to remove the animation class after the animation finishes
+        setTimeout(() => {
+            cartContainer.classList.remove('cart-slidein');
+        }, 1000); // Adjust the duration as needed
+    }
+
+    // Define an array to store cart items
+    const cart = [];
 
     // Function to add an item to the cart
     function addToCart(name, price) {
@@ -114,15 +84,13 @@
         updateCartDisplay();
     }
 
-    // Function to update the cart display
-    function updateCartDisplay() {
-        const cartContainer = document.getElementById('cart');
-        cartContainer.innerHTML = ''; // Clear existing cart content
+    // Initial rendering of coffee products
+    renderCoffeeProducts(coffees);
+// Event listener to open the cart modal
+const openCartButton = document.getElementById('openCartButton');
+openCartButton.addEventListener('click', function () {
+    const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+    cartModal.show();
+});
 
-        for (const item of cart) {
-            const cartItem = document.createElement('div');
-            cartItem.textContent = `Coffee: ${item.name} - Price: $${item.price}`;
-            cartContainer.appendChild(cartItem);
-        }
-    }
 })();

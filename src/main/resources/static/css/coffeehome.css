@@ -1,11 +1,50 @@
+/* Custom styles for the shopping cart */
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially hidden to the right */
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.cart-open {
+    right: 0; /* Displayed on the right when opened */
+}
+
+.cart-header {
+    background-color: #343a40;
+    color: #ffc107;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-items {
+    padding: 20px;
+}
+
+.cart-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+}
+
+/* Body styles */
+body {
+    background-color: gold;
+}
+
+/* Additional styling for Coffee Products (Cards) if needed */
+
 .coffeeHead{
     text-align: center;
     font-weight: bolder;
     font-size: xxx-large;
     color: darkgreen;
-}
-body {
-    background-color: gold;
 }
 
 .roast-container {
@@ -29,33 +68,60 @@ p {
     font-weight: bold;
     font-size: 25px;
 }
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
 }
 
-/*@media screen and (max-width:769px){*/
-/*    #image {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
- .btn {
-        background-color: #ff9900; /* Set the background color */
-        color: white; /* Set the text color */
-        padding: 8px 16px; /* Add padding to the button */
-        border: none; /* Remove the border */
-        border-radius: 4px; /* Add some border radius for rounded corners */
-        cursor: pointer; /* Add a pointer cursor on hover */
-    }
+.btn {
+    background-color: #ff9900; /* Set the background color */
+    color: white; /* Set the text color */
+    padding: 8px 16px; /* Add padding to the button */
+    border: none; /* Remove the border */
+    border-radius: 4px; /* Add some border radius for rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
 
-    .btn:hover {
-        background-color: #ff6600; /* Change background color on hover */
-    }
+.btn:hover {
+    background-color: #ff6600; /* Change background color on hover */
+}
 
-    a.nav-link{
-        color: gold;
-    }
+a.nav-link{
+    color: gold;
+}
+
 #coffeeBags{
     height: 400px;
-    width:500px;
+    width: 500px;
 }
+
+/* Cart slide-in animation class */
+.cart-slidein {
+    animation: slidein 1s forwards;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+/* Custom CSS for the cart modal */
+.modal-dialog-side {
+    width: 400px; /* Adjust the width as needed */
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #333;
+    color: white;
+}
+
+/* Add more custom styling as needed */
+
