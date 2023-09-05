@@ -29,14 +29,55 @@ a {
   align-items: center;
   justify-content: space-between;
 }
+.nav-logo,
+.nav-link,
+.button {
+  color: #4d2505;
+}
+.nav-logo{
+  font-size: 25px;
+}
 .nav-item {
   column-gap: 25px;
 }
 .nav-link:hover {
-  color: #d9d9d9;
+  color: #5b3115;
 }
 
-
+.button {
+  padding: 6px 24px;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.button:active {
+  transform: scale(0.98);
+}
+/* Home */
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("static/imgs/bg.jpg"); /* Updated path */
+  background-size: cover;
+  background-position: center;
+}
+/*.home::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*  background-color: rgba(0, 0, 0, 0.6);*/
+/*  z-index: 100;*/
+/*  opacity: 0;*/
+/*  pointer-events: none;*/
+/*  transition: all 0.5s ease-out;*/
+/*}*/
+/*.home.show::before {*/
+/*  opacity: 1;*/
+/*  pointer-events: auto;*/
+/*}*/
 
 
 
