@@ -9,13 +9,13 @@
 a {
   text-decoration: none;
 }
-
 .header {
   position: fixed;
-  height: 80px;
+  height: 50px;
   width: 100%;
   z-index: 100;
-  padding: 0 20px;
+  padding: 20px;
+  justify-content: space-evenly;
 }
 .nav {
   max-width: 1100px;
@@ -24,10 +24,11 @@ a {
 }
 .nav,
 .nav-item {
+  padding-top: 20px;
   display: flex;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .nav-logo,
 .nav-link,
@@ -45,8 +46,9 @@ a {
 }
 
 .button {
+  margin-left: 200px;
   padding: 6px 24px;
-  border: 2px solid #fff;
+  border: 2px solid #9f4c08;
   background: transparent;
   border-radius: 6px;
   cursor: pointer;

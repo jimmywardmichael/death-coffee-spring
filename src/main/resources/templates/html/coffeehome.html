@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:min="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,15 +10,17 @@
 <!-- NAVBAR -->
 <header class="header">
   <nav class="nav">
-        <a th:href="@{/home}" class="nav-logo" th:src="/static/imgs/bg">CoffeeLab</a>
+        <a th:href="@{/home}" class="nav-logo">CoffeeLab</a>
             <ul class="nav-items">
                 <li class="nav-item">
                     <a th:href="@{/home}" class="nav-link">Home</a>
                     <a th:href="@{/signup}" class="nav-link">Coffee Lab Club</a>
+                    <img src="/imgs/coffeelab.png" th:height="100px">
                     <a th:href="@{/cart}" class="nav-link">Shop</a>
                     <a th:href="@{/profile}" class="nav-link">Profile</a>
                 </li>
             </ul>
+        <button class="button" id="form-open">Login</button>
 </nav>
 </header>
 <section class="home" >
