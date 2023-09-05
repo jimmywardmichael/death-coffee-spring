@@ -2,97 +2,56 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Death By Coffee</title>
-    <!-- BOOTSTRAP CSS LINK -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Lab</title>
     <link href="/css/coffeehome.css" rel="stylesheet">
 </head>
 <body>
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <!-- Brand -->
-        <a th:href="@{/home}" class="navbar-brand">
-            <span class="text-warning">
-                <img id="image" src="/imgs/deathLogo.jpg" alt="coffee bean" height="124" width="100">
-                Death by Coffee
-            </span>
-        </a>
-        <!-- Toggler Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse justify-content-end" id="navmenu">
-            <ul class="navbar-nav">
+<header class="header">
+  <nav class="nav">
+        <a th:href="@{/home}" class="nav_logo">CoffeeLab</a>
+            <ul class="nav-items">
                 <li class="nav-item">
-                    <a th:href="@{/signup}" class="nav-link">Death by Coffee Club</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/cart}" class="nav-link">Death Shop</a>
+                    <a th:href="@{/home}" class="nav-link">Home</a>
+                    <a th:href="@{/signup}" class="nav-link">Coffee Lab Club</a>
+                    <a th:href="@{/cart}" class="nav-link">Shop</a>
+                    <a th:href="@{/profile}" class="nav-link">Profile</a>
                 </li>
             </ul>
-        </div>
-    </div>
 </nav>
+</header>
 <!-- Additional Info with Images and sign up link  -->
-<section class="bg-dark text-light pt-5 text-center text-sm-start">
-    <div class="container">
-        <div class="d-flex">
-            <div>
-                <h1><span class="text-warning">Experience Every Cup Like It Was Your Last.</span></h1>
-                <p>
-                    Here at Death by Coffee...
-                </p>
-              <a th:href="@{signup}" class="btn btn-sm" style="text-decoration: none;">Sign-up Death by Coffee</a>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="row row-cols-1 row-cols-md-2 g-4" id="coffeeBags">
-  <div class="col">
-    <div class="card">
-      <img src="/imgs/allLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">
-      <div class="card-body">
-        <h5 class="card-title">All</h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="/imgs/lightLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">
-      <div class="card-body">
-        <h5 class="card-title">Light Roast</h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="/imgs/mediumLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">
-      <div class="card-body">
-        <h5 class="card-title">Medium Roast</h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="/imgs/darkLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">
-      <div class="card-body">
-        <h5 class="card-title">Dark Roast</h5>
-        <p class="card-text"></p>
-      </div>
-    </div>
-  </div>
-</div>
+<!--      <img src="/imgs/allLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">-->
+<!--  <div class="col">-->
+<!--    <div class="card">-->
+<!--      <img src="/imgs/lightLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Light Roast</h5>-->
+<!--        <p class="card-text"></p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card">-->
+<!--      <img src="/imgs/mediumLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Medium Roast</h5>-->
+<!--        <p class="card-text"></p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card">-->
+<!--      <img src="/imgs/darkLogo.jpg" class="card-img-top" alt="..." th:height="200px" th:width="200px">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Dark Roast</h5>-->
+<!--        <p class="card-text"></p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
    <script src="/js/rendercoffee.js"></script>
         <!-- BootStrap JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-                crossorigin="anonymous">
-        </script>
 </body>
 </html>
