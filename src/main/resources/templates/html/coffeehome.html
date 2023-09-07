@@ -25,12 +25,17 @@
 </header>
 <!--    Display all coffees to add to cart-->
 <!--    Need add to cart functionality-->
-<div class="cartItems" id="cartDisplay">
-
-
-
-</div>
-
+  <h1>Welcome to the Coffee Shop</h1>
+<h2>Coffee Items</h2>
+<ul class="coffeeShow">
+    <li th:each="coffeeItem : ${coffeeItemsList}">
+        <p th:text="${coffeeItem.name}"></p>
+        <p th:text="${coffeeItem.roast}"></p>
+        <p th:text="${coffeeItem.price}"></p>
+        <p th:text="${coffeeItem.size}"></p>
+        <!-- Add more coffee item details as needed -->
+    </li>
+</ul>
 
 <body>
 <script src="https://kit.fontawesome.com/952d16e177.js" crossorigin="anonymous"></script>
