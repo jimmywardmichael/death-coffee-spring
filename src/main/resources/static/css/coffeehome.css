@@ -2,5 +2,5 @@
     display: flex;
     align-content: space-evenly;
     gap: 300px;
-    font-family: "Book Antiqua";
+    font-family: "Book Antiqua", serif;
 }
