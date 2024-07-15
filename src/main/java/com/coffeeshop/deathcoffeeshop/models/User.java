@@ -1,42 +1,30 @@
 package com.coffeeshop.deathcoffeeshop.models;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name= "user")
+@Document(collection = "user")
 public class User {
+
     @Id
-//    GenerationType.Identity assigns primary key using database identity column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long id;
-    @Column(name="username",nullable = false, length = 50, unique = true)
+    private String id;
     private String username;
-    @Column(name="fname",nullable = false, length = 50, unique = true)
     private String fname;
-    @Column(name="lname",nullable = false, length = 50, unique = true)
     private String lname;
-    @Column(name="email",nullable = false, length = 100, unique = true)
     private String email;
-    @Column(name="password",nullable = false, length = 100, unique = true)
     private String password;
-    @Column(name="confpassword",nullable = false, length = 100, unique = true)
     private String confpassword;
-    @Column(name="address",nullable = false, unique = true)
     private String address;
-    @Column(name="address2",nullable = false, unique = true)
     private String address2;
-    @Column(name="city",nullable = false, length = 50, unique = true)
     private String city;
-    @Column(name="state",nullable = false, length = 50, unique = true)
     private String state;
-    @Column(name="zip",nullable = false, length = 20, unique = true)
     private String zip;
 
     // Constructors
+    public User() {
+    }
 
-
-    public User(Long id, String username, String fname, String lname, String email, String password, String confpassword, String address, String address2, String city, String state, String zip) {
+    public User(String id, String username, String fname, String lname, String email, String password, String confpassword, String address, String address2, String city, String state, String zip) {
         this.id = id;
         this.username = username;
         this.fname = fname;
@@ -51,15 +39,12 @@ public class User {
         this.zip = zip;
     }
 
-    public User() {
-
-    }
-//Getters and Setter Methods
-    public Long getId() {
+    // Getters and Setters
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -150,11 +135,12 @@ public class User {
     public void setZip(String zip) {
         this.zip = zip;
     }
-//Generated ToString method
+
+    // Generated toString method
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
