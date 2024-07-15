@@ -1,24 +1,50 @@
 package com.coffeeshop.deathcoffeeshop.models;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
 public class User {
 
-    @Id
     private String id;
+    @Id
+
+    @NotEmpty(message = "Username is required")
     private String username;
+
+    @NotEmpty(message = "First name is required")
     private String fname;
+
+    @NotEmpty(message = "Last name is required")
     private String lname;
+
+    @NotEmpty(message = "Email is required")
+    @Email(message = "Email should be valid")
     private String email;
+
+    @NotEmpty(message = "Password is required")
+    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", message = "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
     private String password;
+
+    @NotEmpty(message = "Confirm password is required")
     private String confpassword;
+
+    @NotEmpty(message = "Address is required")
     private String address;
+
     private String address2;
+
+    @NotEmpty(message = "City is required")
     private String city;
+
+    @NotEmpty(message = "State is required")
     private String state;
+
     private String zip;
+
 
     // Constructors
     public User() {

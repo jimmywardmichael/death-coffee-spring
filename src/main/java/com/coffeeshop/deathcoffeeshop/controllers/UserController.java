@@ -29,25 +29,14 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-public String processSignUpForm(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-    if (bindingResult.hasErrors()) {
-        return "html/signup";
+    public String processSignUpForm(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "html/signup";
+        }
+
+        userDao.save(user); // This uses your UserRepository to save to MongoDB
+
+        return "html/coffeehome";
     }
-
-    userDao.save(user); // This uses your UserRepository to save to MongoDB
-
-    return "html/coffeehome";
 }
-//    @PostMapping("/signup")
-//    public String processSignUpForm(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            // If there are validation errors, return to the signup form
-//            return "html/signup";
-//        }
-//
-//        // Save the user to the database
-//        userDao.save(user);
-//
-//        return "html/coffeehome";
-//    }
-}
+

@@ -57,10 +57,13 @@
         <input type="email" class="form-control" id="email" th:field="*{email}"  required>
 
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" th:field="*{password}"  required>
+        <input type="password" class="form-control" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" th:field="*{password}"  required>
+
 
         <label for="confpassword" class="form-label">Confirm password</label>
-        <input type="password" class="form-control" id="confpassword" th:field="*{confpassword}"  required>
+        <input type="password" class="form-control" id="confpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" th:field="*{confpassword}"  required>
 
         <label for="address" class="form-label">Address</label>
         <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:field="*{address}"  required>
@@ -138,7 +141,17 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous">
 </script>
-
+<script>
+    function validatePasswords() {
+        var password = document.getElementById("password").value;
+        var confpassword = document.getElementById("confpassword").value;
+        if (password != confpassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 
 </html>
