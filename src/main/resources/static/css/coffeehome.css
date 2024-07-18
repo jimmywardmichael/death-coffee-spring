@@ -35,7 +35,7 @@
 
 /* Body styles */
 body {
-    background-color: gold;
+    background-color: #e1e1e1;
 }
 
 /* Additional styling for Coffee Products (Cards) if needed */
@@ -75,12 +75,12 @@ table {
 }
 
 .btn {
-    background-color: #ff9900; /* Set the background color */
-    color: white; /* Set the text color */
+    background-color: #e1e1e1; /* Set the background color */
+    color: #950404; /* Set the text color */
     padding: 8px 16px; /* Add padding to the button */
-    border: none; /* Remove the border */
+    border: #0c0c0b; /* Remove the border */
     border-radius: 4px; /* Add some border radius for rounded corners */
-    cursor: pointer; /* Add a pointer cursor on hover */
+    cursor: pointer ; /* Add a pointer cursor on hover */
 }
 
 .btn:hover {
@@ -123,5 +123,28 @@ a.nav-link{
     color: white;
 }
 
-/* Add more custom styling as needed */
+.card-img-top {
+    max-height: 250px;
+    max-width: 200px;
+    margin: auto;
+    display: block;
+}
+.card-body {
+    margin: auto;
+    display: block;
+}
+.card-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.card-body{
+    color: #0c0c0b ;
+    font-family: "Arial Rounded MT Bold", sans-serif;
+}
+.navbar-dark{
+    max-height: 100px ;
+}
+
+
 
