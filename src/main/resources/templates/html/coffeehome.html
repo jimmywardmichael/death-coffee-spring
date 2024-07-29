@@ -9,34 +9,7 @@
     <link href="/css/coffeehome.css" rel="stylesheet">
 </head>
 <body>
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <!-- Brand -->
-        <a th:href="@{/home}" class="navbar-brand">
-            <span class="text-warning">
-                <img id="image" src="/imgs/deathLogo.jpg" alt="coffee bean" height="124" width="100">
-                Death by Coffee
-            </span>
-        </a>
-        <!-- Toggler Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse justify-content-end" id="navmenu">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a th:href="@{/signup}" class="nav-link">Death by Coffee Club</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/cart}" class="nav-link">Death Shop</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<div th:replace="partial/navbar :: navbar"></div>
 <div class="row row-cols-1 row-cols-md-2 g-4" id="coffeeBags">
   <div class="col">
     <div class="card">
@@ -75,7 +48,7 @@
     </div>
   </div>
 </div>
-
+<script src="/js/navbar.js"></script>
 <script src="/js/rendercoffee.js"></script>
 <!-- BootStrap JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

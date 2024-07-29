@@ -28,7 +28,7 @@
                     <h5 class="card-title">${coffee.name}</h5>
                     <p class="card-text">Roast: ${coffee.roast}</p>
                     <p class="card-text">Price: $${coffee.price}</p>
-                    <button class="btn btn-primary mt-auto btn-add-to-cart" data-name="${coffee.name}" data-price="${coffee.price}">Add to Cart</button>
+                    <button class="btn btn-primary mt-auto btn-add-to-cart" data-name="${coffee.name}" data-price="${coffee.price}" data-image="${coffee.image}">Add to Cart</button>
                 </div>
             </div>
         `;
@@ -53,7 +53,8 @@
         if (event.target.classList.contains('btn-add-to-cart')) {
             const coffeeName = event.target.getAttribute('data-name');
             const coffeePrice = parseFloat(event.target.getAttribute('data-price'));
-            addToCart(coffeeName, coffeePrice);
+            const coffeeImage = event.target.getAttribute('data-image');
+            addToCart(coffeeName, coffeePrice, coffeeImage);
         }
     });
 
@@ -66,7 +67,14 @@
 
         for (const item of cart) {
             const cartItem = document.createElement('div');
-            cartItem.textContent = `Coffee: ${item.name} - Price: $${item.price}`;
+            cartItem.className = 'cart-item d-flex align-items-center mb-3';
+            cartItem.innerHTML = `
+                <img src="${item.image}" class="cart-item-image me-3" alt="${item.name}" style="width: 50px; height: 50px;">
+                <div>
+                    <p class="mb-0">Coffee: ${item.name}</p>
+                    <p class="mb-0">Price: $${item.price}</p>
+                </div>
+            `;
             cartItemsContainer.appendChild(cartItem);
         }
 
@@ -85,8 +93,8 @@
     const cart = [];
 
     // Function to add an item to the cart
-    function addToCart(name, price) {
-        cart.push({ name, price });
+    function addToCart(name, price, image) {
+        cart.push({ name, price, image });
         cartTotal += price;
         updateCartDisplay();
     }
