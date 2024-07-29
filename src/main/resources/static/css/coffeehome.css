@@ -17,7 +17,7 @@
 
 .cart-header {
     background-color: #343a40;
-    color: #ffc107;
+    color: #f59d39;
     padding: 10px;
     text-align: center;
 }
@@ -88,7 +88,7 @@ table {
 }
 
 a.nav-link{
-    color: gold;
+    color: #f59d39;
 }
 
 #coffeeBags{
