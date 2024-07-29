@@ -14,7 +14,9 @@
 .cart-open {
     right: 0; /* Displayed on the right when opened */
 }
-
+.page-title{
+    color: #f59d39;
+}
 .cart-header {
     background-color: #343a40;
     color: #f59d39;
