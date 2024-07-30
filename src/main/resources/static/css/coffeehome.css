@@ -1,152 +1,87 @@
-/* Custom styles for the shopping cart */
-.cart-container {
-    position: fixed;
-    top: 0;
-    right: -300px; /* Initially hidden to the right */
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease-in-out;
-    overflow-y: auto;
-}
+/* coffeehome.css */
 
-.cart-open {
-    right: 0; /* Displayed on the right when opened */
-}
-.page-title{
-    color: #f59d39;
-}
-.cart-header {
-    background-color: #343a40;
-    color: #f59d39;
-    padding: 10px;
-    text-align: center;
-}
-
-.cart-items {
-    padding: 20px;
-}
-
-.cart-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f8f9fa;
-}
-
-/* Body styles */
 body {
-    background-color: #e1e1e1;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Additional styling for Coffee Products (Cards) if needed */
-
-.coffeeHead{
+.hero {
+    background: url('/imgs/hero-background.jpg') no-repeat center center/cover;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-weight: bolder;
-    font-size: xxx-large;
-    color: darkgreen;
+    color: #fff;
+    padding: 2rem;
 }
 
-.roast-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.coffee-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.add-a-coffee {
-    display: flex;
-    justify-content: flex-end;
-    color: black;
-}
-
-p {
-    text-decoration: black;
+.hero .display-4 {
+    font-size: 3rem;
     font-weight: bold;
-    font-size: 25px;
 }
 
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+.hero .lead {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
-.btn {
-    background-color: #e1e1e1; /* Set the background color */
-    color: #950404; /* Set the text color */
-    padding: 8px 16px; /* Add padding to the button */
-    border: #0c0c0b; /* Remove the border */
-    border-radius: 4px; /* Add some border radius for rounded corners */
-    cursor: pointer ; /* Add a pointer cursor on hover */
+.hero .btn {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
 }
 
-.btn:hover {
-    background-color: #ff6600; /* Change background color on hover */
+#featured-coffees {
+    background-color: #fff;
+    padding: 2rem 0;
 }
 
-a.nav-link{
-    color: #f59d39;
+.card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-#coffeeBags{
-    height: 400px;
-    width: 500px;
-}
-
-/* Cart slide-in animation class */
-.cart-slidein {
-    animation: slidein 1s forwards;
-}
-
-@keyframes slidein {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-/* Custom CSS for the cart modal */
-.modal-dialog-side {
-    width: 400px; /* Adjust the width as needed */
-}
-
-.modal-content {
-    border-radius: 10px;
-}
-
-.modal-header {
-    background-color: #333;
-    color: white;
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card-img-top {
-    max-height: 250px;
-    max-width: 200px;
-    margin: auto;
-    display: block;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
 }
+
 .card-body {
-    margin: auto;
-    display: block;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-.card-body{
-    color: #0c0c0b ;
-    font-family: "Arial Rounded MT Bold", sans-serif;
-}
-.navbar-dark{
-    max-height: 100px ;
+    text-align: center;
 }
 
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
 
+.btn-primary {
+    background-color: #ff8800;
+    border: none;
+}
 
+.btn-primary:hover {
+    background-color: #cc6f00;
+}

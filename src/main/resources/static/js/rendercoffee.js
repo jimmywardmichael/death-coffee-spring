@@ -1,7 +1,6 @@
 (function () {
     "use strict";
 
-    // Define your coffees array here
     let coffees = [
         { id: 1, name: 'Death PB and J', roast: 'light', price: 10, image: '/imgs/lightLogo.jpg' },
         { id: 2, name: 'Death Ethiopia', roast: 'light', price: 10, image: '/imgs/lightLogo.jpg' },
@@ -14,9 +13,8 @@
         { id: 9, name: 'Death Banana Foster', roast: 'dark', price: 14, image: '/imgs/darkLogo.jpg' },
     ];
 
-    let cartTotal = 0; // Initialize cartTotal to 0
+    let cartTotal = 0;
 
-    // Function to create a Bootstrap card for a coffee product
     function createCoffeeCard(coffee) {
         const card = document.createElement('div');
         card.className = 'col-md-4 mb-4';
@@ -37,10 +35,9 @@
         return card;
     }
 
-    // Function to render all coffee products as cards
     function renderCoffeeProducts(coffees) {
         const coffeeProductsContainer = document.getElementById('coffee-products');
-        coffeeProductsContainer.innerHTML = ''; // Clear existing content
+        coffeeProductsContainer.innerHTML = '';
 
         for (const coffee of coffees) {
             const coffeeCard = createCoffeeCard(coffee);
@@ -48,7 +45,6 @@
         }
     }
 
-    // Event listener for adding coffee to the cart
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('btn-add-to-cart')) {
             const coffeeName = event.target.getAttribute('data-name');
@@ -58,12 +54,11 @@
         }
     });
 
-    // Function to update the cart display with animation
     function updateCartDisplay() {
         const cartContainer = document.getElementById('cart');
         const cartItemsContainer = document.getElementById('cart-items');
         const cartTotalContainer = document.getElementById('cart-total');
-        cartItemsContainer.innerHTML = ''; // Clear existing cart content
+        cartItemsContainer.innerHTML = '';
 
         for (const item of cart) {
             const cartItem = document.createElement('div');
@@ -79,33 +74,34 @@
         }
 
         cartTotalContainer.textContent = `Total: $${cartTotal}`;
-
-        // Add a class to trigger the slide-in animation
         cartContainer.classList.add('cart-slidein');
 
-        // Set a timeout to remove the animation class after the animation finishes
         setTimeout(() => {
             cartContainer.classList.remove('cart-slidein');
-        }, 1000); // Adjust the duration as needed
+        }, 1000);
     }
 
-    // Define an array to store cart items
     const cart = [];
 
-    // Function to add an item to the cart
     function addToCart(name, price, image) {
         cart.push({ name, price, image });
         cartTotal += price;
         updateCartDisplay();
     }
 
+    // Function to filter and render coffee products based on the search query
+    function filterCoffees(query) {
+        query = query.toLowerCase();
+        const filteredCoffees = coffees.filter(coffee => coffee.name.toLowerCase().includes(query));
+        renderCoffeeProducts(filteredCoffees);
+    }
+
+    // Event listener for the search bar input
+    document.querySelector('input[type="search"]').addEventListener('input', function (event) {
+        const query = event.target.value;
+        filterCoffees(query);
+    });
+
     // Initial rendering of coffee products
     renderCoffeeProducts(coffees);
-
-    // Event listener to open the cart modal
-    const openCartButton = document.getElementById('openCartButton');
-    openCartButton.addEventListener('click', function () {
-        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
-        cartModal.show();
-    });
 })();
