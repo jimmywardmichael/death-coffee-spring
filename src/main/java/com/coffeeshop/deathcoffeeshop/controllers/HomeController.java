@@ -19,6 +19,6 @@ public class HomeController {
     public String getGreeting(Model model) {
         List<Coffee> coffees = coffeeService.getAllCoffees(); // Fetch coffee list from service
         model.addAttribute("coffees", coffees); // Add coffees to model
-        return "coffeehome"; // Template file should be located at src/main/resources/templates/coffeehome.html
+        return "html/coffeehome"; // Template file should be located at src/main/resources/templates/coffeehome.html
     }
 }
